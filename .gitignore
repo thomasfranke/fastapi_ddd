@@ -1,0 +1,61 @@
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pdb
+*.cpython-*.pyc
+
+# Python virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# FastAPI
+*.db
+*.sqlite3
+*.db-journal
+
+# Test outputs
+.coverage
+nosetests.xml
+pytest_cache/
+*.cover
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VSCode settings
+.vscode/
+
+# IDE files
+.idea/
+*.iml
+
+# PyCharm
+*.idea/
+
+# Sentry config file
+.sentry
+
+# Docker
+docker-compose.override.yml
+
+# Environment variables
+.env
+*.env
+.envrc
+
+# Log files
+*.log
+logs/
+*.out
+
+# Static files (if you are serving static content)
+static/
+
+# FastAPI docs (optional, if you're serving docs with swagger)
+swagger.json
