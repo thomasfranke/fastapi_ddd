@@ -1,17 +1,24 @@
 
+# FastAPI
 
-inicializar ambiente:
+### Docs
+```
+/docs
+```
+
+### Development Status
+[█████████░] 90% Binance API
+[░░░░░░░░░░] 00% Favorites
+[░░░░░░░░░░] 00% Test
+[░░░░░░░░░░] 00% Documentation
+
+### Initializing the project
 source .venv/bin/activate
 
-desativar:
 deactivate
 
-pip install fastapi uvicorn
-
-
-passar todos pacotes para o requirements
-pip freeze > requirements.txt
-
-
-# run
+### Starting the App
 uvicorn fastapi_ddd.main:app --reload --root-path .
+
+### Update Requirements
+pip freeze > requirements.txt
