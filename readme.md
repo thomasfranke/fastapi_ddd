@@ -6,11 +6,12 @@
 /docs
 ```
 
-### Development Status
+### Development Status  
+🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜ 90% Architecture  
 🟩🟩🟩🟩🟩🟩🟩🟩🟩⬜ 90% Binance API  
 ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 00% Favorites  
-⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 00% Test  
-⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 00% Documentation  
+⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 00% Automated Tests  
+🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜ 50% Documentation  
 
 ### Initializing the project
 source .venv/bin/activate
