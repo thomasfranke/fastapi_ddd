@@ -13,5 +13,5 @@ def get_quote(symbol: str):
     return service.get_quote(symbol)
 
 @router.get("/quotes", response_model=list[QuoteDetailEntity])
-def get_all_quotes():
-    return service.get_all_quotes()
+def get_quotes():
+    return service.get_quotes()

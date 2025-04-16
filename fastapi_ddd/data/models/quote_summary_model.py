@@ -1,8 +1,11 @@
 class QuoteSummaryModel:
-    def __init__(self, symbol, price):
+    def __init__(self, symbol: str, price: float):
         self.symbol = symbol
         self.price = price
 
-    @staticmethod
-    def get(quote: str):
-        return QuoteSummaryModel(symbol=quote, price=123.45)
+    @classmethod
+    def from_json(cls, api_data: dict) -> "QuoteSummaryModel":
+        return cls(
+            symbol=api_data["symbol"],
+            price=float(api_data["price"]),
+        )

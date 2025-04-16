@@ -1,12 +1,13 @@
 class QuoteDetailModel:
-    def __init__(self, symbol, price, volume):
+    def __init__(self, symbol: str, lastPrice: float, volume: float):
         self.symbol = symbol
-        self.price = price
+        self.lastPrice = lastPrice
         self.volume = volume
 
-    @staticmethod
-    def all():
-        return [
-            QuoteDetailModel(symbol="BTC", price=123.45, volume=1000),
-            QuoteDetailModel(symbol="ETH", price=234.56, volume=2000),
-        ]
+    @classmethod
+    def from_json(cls, api_data: dict) -> "QuoteDetailModel":
+        return cls(
+            symbol=api_data["symbol"],
+            lastPrice=float(api_data["lastPrice"]),
+            volume=float(api_data["volume"])
+        )

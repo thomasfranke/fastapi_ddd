@@ -1,31 +1,20 @@
 import httpx
 from fastapi_ddd.domain.repositories.quotes_repository import QuotesRepository
-from fastapi_ddd.domain.entities.quote_summary_entity import QuoteSummaryEntity
-from fastapi_ddd.domain.entities.quote_detail_entity import QuoteDetailEntity
+from fastapi_ddd.data.models.quote_detail_model import QuoteDetailModel
+from fastapi_ddd.data.models.quote_summary_model import QuoteSummaryModel
 
 class QuotesRepositoryImpl(QuotesRepository):
-    def fetch_quote(self, quote: str) -> QuoteSummaryEntity:
+    def fetch_quote(self, quote: str) -> QuoteSummaryModel:
         url = f"https://api.binance.com/api/v3/ticker/price?symbol={quote}"
         response = httpx.get(url)
         data = response.json()
 
-        return QuoteSummaryEntity(
-            symbol=data["symbol"],
-            price=float(data["price"])
-        )
+        return QuoteSummaryModel.from_json(data)
 
-    def fetch_quotes(self) -> list[QuoteDetailEntity]:
+    def fetch_quotes(self) -> list[QuoteDetailModel]:
         url = "https://api.binance.com/api/v3/ticker/24hr"
         response = httpx.get(url)
         data = response.json()
 
-        quotes = []
-        for item in data:
-            if "USDT" in item["symbol"]:  # Filtrando apenas pares com USDT
-                quotes.append(QuoteDetailEntity(
-                    symbol=item["symbol"],
-                    price=float(item["lastPrice"]),
-                    volume=float(item["volume"])
-                ))
+        return [QuoteDetailModel.from_json(item) for item in data]
 
-        return quotes
